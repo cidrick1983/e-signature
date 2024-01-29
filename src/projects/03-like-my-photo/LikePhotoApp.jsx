@@ -3,10 +3,10 @@ import { FaRegSmile } from 'react-icons/fa';
 import { FaRegHeart } from 'react-icons/fa6';
 import { FaHeart } from 'react-icons/fa';
 import { FaComments } from 'react-icons/fa';
-import corgi from './img/corgi.jpg';
 import { useEffect, useState } from 'react';
+import corgi from './img/corgi.jpg';
 
-function LikePhotoApp() {
+function LikePhotoApp({ title, imgSource }) {
   //   let like = true;
   const storedCount = JSON.parse(localStorage.getItem('count'));
   const [like, setLike] = useState(false);
@@ -33,11 +33,11 @@ function LikePhotoApp() {
       >
         <div className="card-header fs-xl">
           <FaRegSmile className="mr-2" />
-          <small>DoggyDog</small>
+          <small>{title}</small>
         </div>
         <img
           src={corgi}
-          alt="dog"
+          alt={title}
           style={{ height: 'fit-content' }}
           onDoubleClick={toggleLike}
           onContextMenu={handleRightClick}
